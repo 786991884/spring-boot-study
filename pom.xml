@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xubh</groupId>
+    <artifactId>spring-boot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-boot-01-helloworld</module>
+        <module>spring-boot-01-helloworld-quick</module>
+        <module>spring-boot-02-config</module>
+        <module>spring-boot-02-config-02</module>
+        <module>spring-boot-02-config-autoconfig</module>
+        <module>spring-boot-03-logging</module>
+        <module>spring-boot-04-web-jsp</module>
+        <module>spring-boot-04-web-restfulcrud</module>
+        <module>spring-boot-06-data-jdbc</module>
+        <module>spring-boot-06-data-jpa</module>
+        <module>spring-boot-06-data-mybatis</module>
+        <module>spring-boot-07</module>
+        <module>spring-boot-08-starter</module>
+        <module>spring-boot-08-starter-test</module>
+        <module>spring-boot-09-cache</module>
+        <module>spring-boot-10-amqp</module>
+        <module>spring-boot-11-elastic</module>
+        <module>spring-boot-12-task</module>
+        <module>spring-boot-13-security</module>
+        <module>spring-boot-14-dubbo</module>
+        <module>spring-boot-15-springcloud</module>
+        <module>spring-boot-16-deploy</module>
+        <module>spring-boot-17-actuator</module>
+    </modules>
+
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.12.RELEASE</version>
+    </parent>
+
+</project>
