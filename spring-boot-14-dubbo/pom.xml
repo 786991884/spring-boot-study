@@ -12,8 +12,8 @@
     <artifactId>spring-boot-14-dubbo</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>consumer-user</module>
-        <module>provider-ticket</module>
+        <module>provider_ticket</module>
+        <module>consumer_users</module>
     </modules>
 
 </project>
