@@ -1,6 +1,6 @@
 package com.xubh.springboot.controller;
 
-import com.xubh.springboot.entity.User;
+import com.xubh.springboot.entity.Users;
 import com.xubh.springboot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,14 +14,14 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping("/user/{id}")
-    public User getUser(@PathVariable("id") Integer id){
-        User user = userRepository.findOne(id);
+    public Users getUser(@PathVariable("id") Integer id){
+        Users user = userRepository.findOne(id);
         return user;
     }
 
     @GetMapping("/user")
-    public User insertUser(User user){
-        User save = userRepository.save(user);
+    public Users insertUser(Users user){
+        Users save = userRepository.save(user);
         return save;
     }
 

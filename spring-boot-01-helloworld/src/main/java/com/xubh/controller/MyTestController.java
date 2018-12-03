@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 
 /**
  * @author xubh
@@ -82,4 +79,57 @@ public class MyTestController {
         return ResponseEntity.ok().headers(headers).contentLength(file.contentLength()).body(new InputStreamResource(file.getInputStream()));
     }
 
+
+    @RequestMapping(params = {"Action=CreateKey4"})
+    public ResponseEntity<String> downloadFile1() throws IOException {
+        String privatekey = "徐冰浩fdaf999jkljfdlksajflkadfadfxxxxxxxxxxxxxxxxlkjlkjljlkjlkjfadkjkfajlkdsjfkajsdlfj";
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attachment; filename=" + "test");
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        return ResponseEntity.ok().headers(headers).body(privatekey);
+    }
+
+    @RequestMapping(params = {"Action=CreateKey5"})
+    public ResponseEntity<InputStreamResource> downloadFile22( Long id)
+            throws IOException {
+        FileSystemResource file = new FileSystemResource("e:\\cat\\settings.xml");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getFilename()));
+        headers.add("Pragma", "no-cache");
+        headers.add("Expires", "0");
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .contentLength(file.contentLength())
+                .contentType(MediaType.parseMediaType("application/octet-stream"))
+                .body(new InputStreamResource(file.getInputStream()));
+    }
+
+    @RequestMapping(params = {"Action=CreateKey6"})
+    public ResponseEntity<byte[]> downloadFile2332( Long id)
+            throws IOException {
+        byte[] body = null;
+        FileSystemResource file = new FileSystemResource("e:\\cat\\settings.xml");
+        InputStream inputStream = file.getInputStream();
+        try {
+            body = new byte[inputStream.available()];
+            inputStream.read(body);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        //"attachment;filename*=UTF-8''" + URLEncoder.encode(fileName,"UTF-8")
+        headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getFilename()));
+        headers.add("Pragma", "no-cache");
+        headers.add("Expires", "0");
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .contentLength(file.contentLength())
+                .contentType(MediaType.parseMediaType("application/octet-stream"))
+                .body(body);
+    }
 }
